@@ -2,6 +2,8 @@
 
 const axios = require('axios');
 const crypto = require('crypto');
+const libConfig = require('../../lib').config;
+const config = libConfig('default');
 
 
 //TODO 
@@ -15,17 +17,13 @@ module.exports = () => {
   };
 
   function getAllHeroes(req, res) {
-    //getConfig then axios
-
     const ts = Date.now();
-    axios.get('https://gateway.marvel.com:443/v1/public/characters', {
-      params: {
-        apikey: "376a84fde31284991e6f72ebc2cd3072",
-        ts: ts,
-        hash: crypto.createHash('md5').update(data).digest("hex") //TODO md5 of ts+public+private
-      }
-    })
-    .then((result) => console.log(result.status));
+    const apikey = config.marvel.apiPublicKey;
+    const data = crypto.createHash('md5').update(ts+config.marvel.apiPrivateKey+apikey).digest("hex");
+
+    axios.get(`https://gateway.marvel.com:443/v1/public/characters?ts=${ts}&apikey=${apikey}&hash=${data}`)
+    .then((result) => console.log(result.status))
+    .catch(err => console.log(err));
   }
 
 };
