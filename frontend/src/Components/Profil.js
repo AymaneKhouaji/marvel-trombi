@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Loader from "./Loader";
 import InfiniteScroll from 'react-infinite-scroller';
  
 const DEFAULT_LIMIT = 20;
@@ -30,7 +31,6 @@ class Profil extends Component {
   }
 
   render() {
-    const loader = <div key='loader' className="loader">Loading ...</div>;
     const items = [];
 
     this.state.heroes.map((hero, i) => {
@@ -47,7 +47,7 @@ class Profil extends Component {
           pageStart={0}
           loadMore={this.loadHeroes.bind(this)}
           hasMore={this.state.hasMoreItems}
-          loader={loader}>
+          loader={<Loader key='loader'/>}>
 
           <div className="Profils grid-container">
               {items}
