@@ -2,11 +2,10 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const api = require('./api')();
+var cors = require('cors');
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname+'/../frontend/public/index.html'))
-})
+app.use(cors());
 
-app.listen(3000, function () {
+app.listen(3001, function () {
   app.use('/api', api);
 })
