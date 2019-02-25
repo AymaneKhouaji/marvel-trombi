@@ -29,6 +29,9 @@
           }
         }
       ]
+    ],
+    "ignore": [
+      "node_modules"
     ]
   }
 }
