@@ -1,12 +1,14 @@
-version: '1'
+version: '2'
 services:
   node:
     build: 
-      context: ..
+      context: .
       dockerfile: docker/node.dockerfile
+    ports:
+     - "3001:3001"
   nginx:
     build: 
-      context: ..
+      context: .
       dockerfile: docker/nginx.dockerfile
     ports:
      - "3000:80"

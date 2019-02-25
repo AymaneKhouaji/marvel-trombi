@@ -13,9 +13,9 @@
         "build:backend": "cd backend && npm run build && cd ..",
         "build:frontend": "cd frontend && npm run build && cd ..",
         "prestart:docker": "npm run build",
-        "start:docker": "docker-compose -f docker/docker-compose.yml up -d --build",
+        "start:docker": "docker-compose -f docker-compose.yml up -d --build",
         "poststart:docker": "opn http://localhost:3000/",
-        "stop:docker": "docker-compose -f docker/docker-compose.yml down"
+        "stop:docker": "docker-compose -f docker-compose.yml down"
     },
     "devDependencies": {
         "npm-run-all": "^4.0.2",
