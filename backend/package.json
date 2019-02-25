@@ -17,7 +17,7 @@
     "start": "nodemon server.js --exec babel-node",
     "clean": "rimraf build",
     "prebuild": "npm run clean",
-    "build": "babel ./ -d build"
+    "build": "babel ./ --ignore node_modules -d build"
   },
   "babel": {
     "presets": [
