@@ -14,7 +14,7 @@
         "build:frontend": "cd frontend && npm run build && cd ..",
         "prestart:docker": "npm run build",
         "start:docker": "docker-compose -f docker/docker-compose.yml up -d --build",
-        "poststart:docker": "opn http://localhost:8000/",
+        "poststart:docker": "opn http://localhost:3000/",
         "stop:docker": "docker-compose -f docker/docker-compose.yml down"
     },
     "devDependencies": {
